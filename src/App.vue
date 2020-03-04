@@ -1,28 +1,32 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Home></Home>
+    <Show test="example text"></Show>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Home from "./views/Home.vue";
+import Show from "./views/Show.vue";
 export default {
-  name: 'App',
   components: {
-    HelloWorld
+    Home,
+    Show
   }
-}
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+body {
+  background-color: black;
+}
+
+body h1,
+h2,
+h3,
+h4,
+p {
+  color: white;
+  font-family: "Exo", sans-serif;
 }
 </style>
