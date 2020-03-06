@@ -1,17 +1,22 @@
 <template>
   <div id="app">
-    <Home></Home>
-    <Show test="example text"></Show>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
 import Home from "./views/Home.vue";
-import Show from "./views/Show.vue";
+import Login from "./views/Login.vue";
+import LiveChat from "./views/LiveChat.vue";
+import Show from "./components/ShowSEC.vue";
+import Nav from "./components/Nav.vue";
 export default {
   components: {
     Home,
-    Show
+    Show,
+    Nav,
+    Login,
+    LiveChat
   }
 };
 </script>

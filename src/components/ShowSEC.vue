@@ -1,14 +1,49 @@
 <template>
-  <router-link to="/">
-    <button class="backHomeButton">Back to Home Page(LiveChat)</button>
-  </router-link>
+  <div>
+    <div class="head">
+      <router-link to="/menu">
+        <img class="menuicon" src="@/assets/menuicon.png" />
+      </router-link>
+    </div>
+    <img class="showimage" :src="show.image.original" />
+    <router-link to="/">
+      <button class="backHomeButton">Back to Home Page(Show)</button>
+    </router-link>
+  </div>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      show: null,
+      url: "http://api.tvmaze.com/shows/1505"
+    };
+  },
+
+  created() {
+    fetch(this.url)
+      .then(data => data.json())
+      .then(json => (this.show = json));
+  }
+};
 </script>
 
 <style>
+.head {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.showimage {
+  display: flex;
+  border-radius: 10px;
+  width: 60%;
+  margin: auto;
+}
+
 .backHomeButton {
   display: flex;
   margin: auto;

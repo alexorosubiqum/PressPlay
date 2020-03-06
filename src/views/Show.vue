@@ -1,30 +1,27 @@
 <template>
   <div>
     <div class="head">
-      {{test}}
       <img class="usericon" src="@/assets/usericon.png" />
       <img class="logo" src="@/assets/logo.png" />
       <img class="menuicon" src="@/assets/menuicon.png" />
     </div>
-    <img src="https://placehold.it/360x270" />
+    <img class="showimage" :src="show.image.original" />
   </div>
 </template>
 
 <script>
 export default {
-  props: ["test"],
   data() {
     return {
-      url: "http://api.tvmaze.com/shows",
-      shows: []
+      show: null,
+      url: "http://api.tvmaze.com/shows/1505"
     };
-    console.log(shows);
   },
 
   created() {
     fetch(this.url)
       .then(data => data.json())
-      .then(json => (this.shows = json.id));
+      .then(json => (this.show = json));
   }
 };
 </script>
@@ -47,6 +44,12 @@ export default {
 
 .logo {
   display: flex;
+  margin: auto;
+}
+
+.showimage {
+  display: flex;
+  width: 60%;
   margin: auto;
 }
 </style>
