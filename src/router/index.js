@@ -11,9 +11,29 @@ const routes = [
     component: Home
   },
   {
-    path: "/show",
+    path: "/show/:id",
     name: "Show",
-    component: () => import("../components/ShowSEC.vue")
+    component: () => import("../components/ShowSEC.vue"),
+    props: true
+  },
+  {
+    path: "/show/:id/episodes",
+    name: "ShowE",
+    component: () => import("../components/ShowSEC.vue"),
+    props: true
+  },
+
+  {
+    path: "/show/:id/seasons",
+    name: "ShowE",
+    component: () => import("../components/ShowSEC.vue"),
+    props: true
+  },
+  {
+    path: "/show/:id/cast",
+    name: "ShowC",
+    component: () => import("../components/ShowSEC.vue"),
+    props: true
   },
   {
     path: "/nav",

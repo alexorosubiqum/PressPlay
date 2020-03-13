@@ -1,7 +1,9 @@
 <template>
-  <router-link to="/">
-    <button class="backHomeButton">Back to Home Page(Login)</button>
-  </router-link>
+  <div>
+    <router-link style="text-decoration: none" st to="/">
+      <button class="backHomeButton">Back to Home Page(Login)</button>
+    </router-link>
+  </div>
 </template>
 
 <script>

@@ -1,7 +1,9 @@
 <template>
-  <router-link to="/">
-    <button class="backHomeButton">Back to Home Page(LiveChat)</button>
-  </router-link>
+  <div>
+    <router-link style="text-decoration: none" to="/">
+      <button class="backHomeButton">Back to Home Page(LiveChat)</button>
+    </router-link>
+  </div>
 </template>
 
 <script>
