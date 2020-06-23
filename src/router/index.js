@@ -8,54 +8,53 @@ const routes = [
   {
     path: "/",
     name: "Home",
-    component: Home
+    component: Home,
   },
   {
     path: "/show/:id",
     name: "Show",
     component: () => import("../components/ShowSEC.vue"),
-    props: true
+    props: true,
   },
   {
     path: "/show/:id/episodes",
     name: "ShowE",
     component: () => import("../components/ShowSEC.vue"),
-    props: true
+    props: true,
   },
-
   {
     path: "/show/:id/seasons",
     name: "ShowE",
     component: () => import("../components/ShowSEC.vue"),
-    props: true
+    props: true,
   },
   {
     path: "/show/:id/cast",
     name: "ShowC",
     component: () => import("../components/ShowSEC.vue"),
-    props: true
+    props: true,
   },
   {
     path: "/nav",
     name: "Nav",
-    component: () => import("../components/Nav.vue")
+    component: () => import("../components/Nav.vue"),
   },
   {
     path: "/login",
     name: "Login",
-    component: () => import("../views/Login.vue")
+    component: () => import("../views/Login.vue"),
   },
   {
     path: "/livechat",
     name: "LiveChat",
-    component: () => import("../views/LiveChat.vue")
-  }
+    component: () => import("../views/LiveChat.vue"),
+  },
 ];
 
 const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
-  routes
+  routes,
 });
 
 export default router;

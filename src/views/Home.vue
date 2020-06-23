@@ -1,10 +1,11 @@
 <template>
   <div>
-    <Toolbar />
     <img class="logo" src="@/assets/logo.png" />
     <div id="searchBar">
       <input class="search" type="text" placeholder="What to see...?" v-model="search" />
-      <button @click="searchByName">SEARCH</button>
+      <button @click="searchByName">
+        <v-icon style="filter: invert(1)">mdi-magnify</v-icon>SEARCH
+      </button>
     </div>
     <carousel-3d
       touch
@@ -26,7 +27,7 @@
           <figure class="figure">
             <img v-if="show.image" class="showImage" :src="show.image.original" />
             <img v-else class="showImage" src="@/assets/noimage.png" />
-            <figcaption style="text-transform: uppercase" class="showtitle">{{show.name }}</figcaption>
+            <figcaption style="text-transform: uppercase" class="showtitle">{{ show.name }}</figcaption>
           </figure>
         </router-link>
       </slide>
@@ -39,14 +40,12 @@
 </template>
 
 <script>
-import Nav from "../components/Nav";
 import { Carousel3d, Slide } from "vue-carousel-3d";
 
 export default {
   components: {
     Carousel3d,
-    Slide,
-    Toolbar: Nav
+    Slide
   },
   data() {
     return {
