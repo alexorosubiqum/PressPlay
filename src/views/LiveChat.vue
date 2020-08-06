@@ -71,7 +71,7 @@ export default {
   Toolbar: Nav,
   name: "LiveChat",
   props: {
-    msg: String
+    msg: String,
   },
   data() {
     return {
@@ -79,13 +79,13 @@ export default {
       messages: [],
       auth: null,
       likes: "",
-      fab: false
+      fab: false,
     };
   },
   watch: {
     auth() {
       this.getLikes();
-    }
+    },
   },
   methods: {
     sendMsg() {
@@ -101,7 +101,7 @@ export default {
       database
         .database()
         .ref("posts-test/")
-        .on("value", snapshot => {
+        .on("value", (snapshot) => {
           console.log(snapshot.val());
 
           that.messages = snapshot.val();
@@ -113,7 +113,7 @@ export default {
       database
         .auth()
         .signInWithPopup(provider)
-        .then(function(result) {
+        .then(function (result) {
           console.log(result);
 
           // This gives you a Google Access Token. You can use it to access the Google API.
@@ -123,7 +123,7 @@ export default {
             name: result.user.displayName,
             email: result.user.email,
             avatar: result.user.photoURL,
-            id: result.user.uid
+            id: result.user.uid,
           };
           console.log(user);
           that.auth = user;
@@ -135,7 +135,7 @@ export default {
 
           // ...
         })
-        .catch(function(error) {
+        .catch(function (error) {
           // Handle Errors here.
           var errorCode = error.code;
           var errorMessage = error.message;
@@ -151,11 +151,11 @@ export default {
       database
         .auth()
         .signOut()
-        .then(function() {
+        .then(function () {
           // Sign-out successful.
           that.auth = null;
         })
-        .catch(function(error) {
+        .catch(function (error) {
           // An error happened.
         });
     },
@@ -169,7 +169,7 @@ export default {
       database
         .database()
         .ref("productsCode/" + this.auth.id)
-        .on("value", snapshot => {
+        .on("value", (snapshot) => {
           console.log(snapshot.val());
 
           this.likes = snapshot.val();
@@ -182,19 +182,19 @@ export default {
     },
     toTop() {
       this.$vuetify.goTo(0);
-    }
+    },
   },
 
   created() {
     this.getPosts();
-    database.auth().onAuthStateChanged(user => {
+    database.auth().onAuthStateChanged((user) => {
       if (user) {
         // User is signed in.
         this.auth = {
           name: user.displayName,
           email: user.email,
           avatar: user.photoURL,
-          id: user.uid
+          id: user.uid,
         };
       } else {
         // No user is signed in.
@@ -206,7 +206,7 @@ export default {
         .getElementsByTagName("ul")[0]
         .scrollIntoView({ behavior: "auto", block: "end" });
     });
-  }
+  },
 };
 </script>
 

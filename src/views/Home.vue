@@ -4,7 +4,7 @@
     <div id="searchBar">
       <input class="search" type="text" placeholder="What to see...?" v-model="search" />
       <button @click="searchByName">
-        <v-icon style="filter: invert(1)">mdi-magnify</v-icon>SEARCH
+        <v-icon style="filter: invert(1)">mdi-magnify</v-icon>Search
       </button>
     </div>
     <carousel-3d
@@ -45,7 +45,7 @@ import { Carousel3d, Slide } from "vue-carousel-3d";
 export default {
   components: {
     Carousel3d,
-    Slide
+    Slide,
   },
   data() {
     return {
@@ -53,13 +53,13 @@ export default {
       url: "http://api.tvmaze.com/shows",
       search: "",
       mainShows: [],
-      searchedShows: []
+      searchedShows: [],
     };
   },
   created() {
     fetch(this.url)
-      .then(data => data.json())
-      .then(json => {
+      .then((data) => data.json())
+      .then((json) => {
         let topRandom = [];
         let randomNumber;
         do {
@@ -73,25 +73,24 @@ export default {
         for (let i = 0; i < topRandom.length; i++) {
           this.mainShows.push(json[topRandom[i]]);
         }
-        console.log(this.mainShows.length);
       });
   },
   methods: {
     searchByName() {
       fetch("http://api.tvmaze.com/search/shows?q=" + this.search)
-        .then(response => response.json())
+        .then((response) => response.json())
 
-        .then(data => {
+        .then((data) => {
           this.mainShows = [];
 
-          data.forEach(show => {
+          data.forEach((show) => {
             this.mainShows.push(show.show);
           });
         })
 
-        .catch(e => console.log(e));
-    }
-  }
+        .catch((e) => console.log(e));
+    },
+  },
 };
 </script>
 
